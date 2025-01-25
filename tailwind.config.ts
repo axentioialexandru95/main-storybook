@@ -13,17 +13,17 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          "50": "#EFF6FF",
-          "100": "#DBEAFE",
-          "200": "#BFDBFE",
-          "300": "#93C5FD",
-          "400": "#60A5FA",
-          "500": "#3B82F6",
-          "600": "#2563EB",
-          "700": "#1D4ED8",
-          "800": "#1E40AF",
-          "900": "#1E3A8A",
-          "950": "#172554"
+          "50": "#E6E6FF",
+          "100": "#CCCCFF",
+          "200": "#9999FF",
+          "300": "#6666FF",
+          "400": "#3333FF",
+          "500": "#1919FE",
+          "600": "#0000CC",
+          "700": "#000099",
+          "800": "#000066",
+          "900": "#000033",
+          "950": "#000019"
         },
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -100,6 +100,7 @@ const config: Config = {
     },
     fontFamily: {
       'body': [
+        'Urbanist',
         'Inter',
         'ui-sans-serif',
         'system-ui',
@@ -117,6 +118,7 @@ const config: Config = {
         'Noto Color Emoji'
       ],
       'sans': [
+        'Urbanist',
         'Inter',
         'ui-sans-serif',
         'system-ui',

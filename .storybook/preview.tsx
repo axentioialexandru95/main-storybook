@@ -1,5 +1,4 @@
 import '../src/styles/globals.css';
-import '@fontsource/urbanist';
 import type { Preview } from '@storybook/react';
 import React from 'react';
 
@@ -17,7 +16,11 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => React.createElement('div', { className: 'dark font-sans' }, React.createElement(Story, null)),
+    (Story: React.ComponentType) => (
+      <div className="dark">
+        <Story />
+      </div>
+    ),
   ],
 };
 

@@ -8,15 +8,10 @@
   }
 }
 
-body {
-  min-height: 100vh;
-}
-
 .dark {
   background-color: #000;
   background-image: url('/bg-pattern.png');
   background-repeat: repeat;
   background-position: center;
-  background-size: 250px;
-  min-height: 100vh;
+  background-size: 200px;
 }

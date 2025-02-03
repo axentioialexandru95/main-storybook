@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import flowbitePlugin from 'flowbite/plugin';
+import animatedPlugin from 'tailwindcss-animated';
 
 const config: Config = {
   content: [
@@ -6,7 +8,8 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/stories/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/flowbite/**/*.js"
+    "./node_modules/flowbite/**/*.js",
+    "node_modules/flowbite-react/lib/esm/**/*.js"
   ],
   darkMode: 'class',
   theme: {
@@ -77,11 +80,14 @@ const config: Config = {
       backgroundImage: {
         'primary-gradient': 'linear-gradient(to right, #7C3AED 60%, #DC2626 60%)',
         'primary-gradient-dark': 'linear-gradient(to right, #7C3AED 44%, #DC2626 44%)',
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       keyframes: {
         'infinite-scroll': {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-200%)' }
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
         },
         'fade-in': {
           '0%': { opacity: '0' },
@@ -90,12 +96,21 @@ const config: Config = {
         'slide-down': {
           '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        'fade-up': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          }
         }
       },
       animation: {
-        'infinite-scroll': 'infinite-scroll 10s linear infinite',
+        'infinite-scroll': 'infinite-scroll 40s linear infinite',
         'fade-in': 'fade-in 0.3s ease-out',
-        'slide-down': 'slide-down 0.4s ease-out'
+        'slide-down': 'slide-down 0.4s ease-out',
+        'fade-up': 'fade-up 0.5s ease-out'
       }
     },
     fontFamily: {
@@ -138,7 +153,8 @@ const config: Config = {
     }
   },
   plugins: [
-    require('flowbite/plugin'),
+    flowbitePlugin,
+    animatedPlugin
   ],
 };
 

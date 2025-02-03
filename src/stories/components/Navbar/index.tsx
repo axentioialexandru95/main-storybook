@@ -2,11 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaGithub, FaTwitter, FaDribbble, FaFacebook } from 'react-icons/fa';
 
-interface NavbarProps {
-  // Add props here
-}
-
-const Navbar: React.FC<NavbarProps> = () => {
+const Navbar: React.FC = () => {
   return (
     <nav className="p-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,33 +1,44 @@
 import React from 'react';
-import { Carousel } from 'flowbite-react';
 
 interface TechnologiesProps {
   className?: string;
 }
 
 const Technologies: React.FC<TechnologiesProps> = ({ className }) => {
-  return (
-    <div className={`w-full bg-black py-8 ${className}`}>
-      <Carousel 
-        slideInterval={3000}
-        className="h-24"
-        indicators={false}
-        leftControl=" "
-        rightControl=" "
-      >
-        <div className="flex items-center justify-center space-x-16 px-4">
-          <img src="/technologies/1.png" alt="Technology 1" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-          <img src="/technologies/2.png" alt="Technology 2" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-          <img src="/technologies/3.png" alt="Technology 3" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-          <img src="/technologies/4.png" alt="Technology 4" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
+  const technologies = [
+    '/technologies/Union.png',
+    '/technologies/Union-1.png',
+    '/technologies/Union-2.png',
+    '/technologies/Union-3.png',
+    '/technologies/Union-4.png',
+    '/technologies/Union-5.png',
+    '/technologies/Union-6.png',
+  ];
 
+  return (
+    <div className={`w-full overflow-hidden py-8 ${className}`}>
+      <div className="relative w-full">
+        <div className="animate-infinite-scroll flex items-center space-x-16 whitespace-nowrap">
+          {/* First set of images */}
+          {technologies.map((tech, index) => (
+            <img
+              key={`first-${index}`}
+              src={tech}
+              alt={`Technology ${index + 1}`}
+              className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300 inline-block"
+            />
+          ))}
+          {/* Duplicate set for seamless loop */}
+          {technologies.map((tech, index) => (
+            <img
+              key={`second-${index}`}
+              src={tech}
+              alt={`Technology ${index + 1}`}
+              className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300 inline-block"
+            />
+          ))}
         </div>
-        <div className="flex items-center justify-center space-x-16 px-4">
-          <img src="/technologies/5.png" alt="Technology 5" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-          <img src="/technologies/6.png" alt="Technology 6" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-          <img src="/technologies/7.png" alt="Technology 7" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-        </div>
-      </Carousel>
+      </div>
     </div>
   );
 };

@@ -4,9 +4,15 @@ const Hero: React.FC = () => {
   return (
     <section className="min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-6xl font-normal text-white mb-4">
-          Your Ideas, Engineered to{' '}
-          <span className="bg-primary-500 px-4 py-1">Thrive Digitally</span>
+        <h1 className="text-4xl md:text-6xl font-normal text-white mb-4 flex flex-col md:block">
+          Your Ideas,
+          <span className="mt-2 md:mt-0">
+            {' '}
+            Engineered to{' '}
+            <span className="inline-block bg-primary-500 px-4 py-1 mt-2 md:mt-2">
+              Thrive <span>Digitally</span>
+            </span>
+          </span>
         </h1>
 
         <p className="text-2xl md:text-3xl text-gray-300 mb-8">
@@ -38,7 +44,7 @@ const Hero: React.FC = () => {
           </button>
         </div>
 
-        <p className="text-gray-400 mt-4">We're on it—expect a quick response!</p>
+        <p className="text-gray-400 mt-4">We&apos;re on it—expect a quick response!</p>
       </div>
     </section>
   );

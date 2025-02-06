@@ -15,3 +15,9 @@
   background-position: center;
   background-size: 200px;
 }
+
+.main-background {
+  background-image: url("/stories/assets/rectangle-bg.png");
+  background-size: 800px;
+  background-repeat: repeat;
+}

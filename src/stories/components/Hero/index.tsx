@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { HeroTiles } from './hero-tiles';
-
+import Navbar from '../Navbar';
 const Hero: React.FC = () => {
   return (
     <section className="min-h-screen relative overflow-hidden flex items-center bg-black">
+      <div className='absolute top-10 left-0 w-full z-50'>
+        <Navbar />
+      </div>
       {/* Tiles background */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <HeroTiles />

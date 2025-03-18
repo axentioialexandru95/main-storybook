@@ -173,30 +173,12 @@
 }
 
 .neon-glow {
-  box-shadow: 0 0 10px rgba(25, 25, 254, 0.8), 0 0 20px rgba(25, 25, 254, 0.6), 0 0 30px rgba(51, 51, 255, 0.4), 0 0 40px rgba(51, 51, 255, 0.3);
-  background-color: rgba(25, 25, 254, 0.4) !important;
-  border-color: rgba(85, 85, 255, 1) !important;
-  z-index: 5;
-  scale: 1.2;
-  transition: all 0.2s ease-in-out;
-  position: relative;
-}
-
-.neon-glow::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle, rgba(25, 25, 254, 0.6) 0%, rgba(25, 25, 254, 0) 70%);
-  z-index: -1;
-}
-
-.neon-border {
-  border-color: rgba(25, 25, 254, 1) !important;
-  box-shadow: 0 0 5px rgba(25, 25, 254, 0.7), 0 0 10px rgba(25, 25, 254, 0.4);
+  box-shadow: 0 0 20px #1919FE, 0 0 30px #1919FE, 0 0 40px #3333FF;
+  background-color: rgba(25, 25, 254, 0.3) !important;
+  border-color: rgba(51, 51, 255, 0.7) !important;
   z-index: 5;
   scale: 1.05;
-  transition: all 0.2s ease-in-out;
-  position: relative;
+  transition: all 0.3s ease-in-out;
 }
 
 @layer base {

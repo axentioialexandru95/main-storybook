@@ -8,7 +8,6 @@ import Technologies from '@/stories/components/Technologies';
 export default function Home() {
   return (
     <main className="relative w-full">
-      <Navbar />
       <Hero />
       <Technologies />
       <Features />

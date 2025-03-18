@@ -160,13 +160,20 @@ export const Tiles = forwardRef<TilesRef, TilesProps>(({
     const colDist = Math.abs(col - hoveredTile.col);
     const distance = Math.sqrt(rowDist * rowDist + colDist * colDist);
     
-    // Only affect tiles within 3 units of the hovered tile
-    const maxDistance = 3;
+    // Only affect tiles within 5 units of the hovered tile - increased for better visibility
+    const maxDistance = 5;
     if (distance > maxDistance) return null;
     
     // Return a value from 0-1 based on distance (closer = higher value)
     return 1 - (distance / maxDistance);
   }
+  
+  // Log when hover state changes for debugging
+  useEffect(() => {
+    if (hoveredTile) {
+      console.log(`Tile component hover state changed: row ${hoveredTile.row}, col ${hoveredTile.col}`);
+    }
+  }, [hoveredTile]);
 
   return (
     <div 
@@ -185,49 +192,74 @@ export const Tiles = forwardRef<TilesRef, TilesProps>(({
             key={`tile-${i}-${j}`}
             initial={constructAnimation ? { 
               opacity: 0,
-              borderColor: "rgba(255, 255, 255, 0.05)",
-              height: "0%"
-            } : undefined}
+              scale: 0.9
+            } : { 
+              opacity: 1,
+              scale: 1
+            }}
             animate={{
               opacity: isTileConstructed(i, j) ? 1 : 0,
-              height: isTileConstructed(i, j) ? "100%" : "0%",
+              scale: isTileConstructed(i, j) ? 1 : 0.9,
               borderColor: isTileActive(i, j) 
-                ? `rgba(25, 25, 254, 0.7)` 
+                ? `rgba(25, 25, 254, 0.9)` 
                 : getRelativeDistanceToHoveredTile(i, j) !== null
-                  ? `rgba(25, 25, 254, ${(getRelativeDistanceToHoveredTile(i, j) || 0) * 0.5})` 
+                  ? `rgba(25, 25, 254, ${(getRelativeDistanceToHoveredTile(i, j) || 0) * 0.7})` 
                   : "rgba(255, 255, 255, 0.05)",
               boxShadow: isTileActive(i, j) 
-                ? "0 0 10px rgba(25, 25, 254, 0.4)" 
+                ? "0 0 20px rgba(25, 25, 254, 0.8), 0 0 30px rgba(25, 25, 254, 0.6), 0 0 40px rgba(25, 25, 254, 0.4)" 
                 : getRelativeDistanceToHoveredTile(i, j) !== null
-                  ? `0 0 ${Math.floor((getRelativeDistanceToHoveredTile(i, j) || 0) * 8)}px rgba(25, 25, 254, ${(getRelativeDistanceToHoveredTile(i, j) || 0) * 0.3})` 
+                  ? `0 0 ${Math.floor((getRelativeDistanceToHoveredTile(i, j) || 0) * 20)}px rgba(25, 25, 254, ${(getRelativeDistanceToHoveredTile(i, j) || 0) * 0.6})` 
                   : "none",
+              backgroundColor: isTileActive(i, j)
+                ? "rgba(25, 25, 254, 0.2)"
+                : getRelativeDistanceToHoveredTile(i, j) !== null
+                  ? `rgba(25, 25, 254, ${(getRelativeDistanceToHoveredTile(i, j) || 0) * 0.15})`
+                  : "transparent",
               transition: { 
-                duration: 0.5,
+                duration: 0.3,
                 ease: "easeOut",
-                opacity: { duration: 0.6 },
-                height: { duration: 0.7, ease: "easeInOut" },
-                borderColor: { duration: 0.3 },
-                boxShadow: { duration: 0.3 }
+                opacity: { duration: 0.4 },
+                scale: { duration: 0.4 },
+                borderColor: { duration: 0.2 },
+                boxShadow: { duration: 0.2 },
+                backgroundColor: { duration: 0.2 }
               }
             }}
             whileHover={{
-              borderColor: `rgba(25, 25, 254, 0.7)`,
-              zIndex: 10,
-              boxShadow: "0 0 15px rgba(25, 25, 254, 0.5)",
-              transition: { duration: 0.2 }
+              borderColor: `rgba(25, 25, 254, 0.9)`,
+              zIndex: 20,
+              boxShadow: "0 0 20px rgba(25, 25, 254, 0.8), 0 0 30px rgba(25, 25, 254, 0.6), 0 0 40px rgba(25, 25, 254, 0.4)",
+              backgroundColor: "rgba(25, 25, 254, 0.2)",
+              transition: { duration: 0.1 }
             }}
             className={cn(
-              "border bg-transparent dark:bg-transparent relative",
+              "border bg-transparent dark:bg-transparent relative overflow-visible",
               tileClassName,
               isTileActive(i, j) && "neon-border"
             )}
             onMouseEnter={() => setHoveredTile({ row: i, col: j })}
             onMouseLeave={() => setHoveredTile(null)}
-          />
+          >
+            {isTileActive(i, j) && (
+              <motion.div 
+                className="absolute inset-0 rounded-full bg-primary-500/20 z-[-1]"
+                initial={{ scale: 0.6, opacity: 0 }}
+                animate={{ 
+                  scale: [0.6, 1.5, 1.2],
+                  opacity: [0, 0.8, 0],
+                  transition: { 
+                    duration: 1.2,
+                    repeat: Infinity,
+                    repeatType: "loop" 
+                  }
+                }}
+              />
+            )}
+          </motion.div>
         ))
       )).flat()}
     </div>
   )
 })
 
-Tiles.displayName = "Tiles"
+Tiles.displayName = "Tiles" 

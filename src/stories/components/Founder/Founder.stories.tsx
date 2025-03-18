@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import BottomNavigation from './index';
+import Founder from './index';
 
 const meta = {
-  title: 'Components/BottomNavigation',
-  component: BottomNavigation,
+  title: 'Components/Founder',
+  component: Founder,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     backgrounds: {
       default: 'dark',
     },
@@ -13,24 +13,22 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="bg-black p-10 w-screen min-h-[300px] flex items-end justify-center">
+      <div className="bg-black">
         <Story />
       </div>
     ),
   ],
-} satisfies Meta<typeof BottomNavigation>;
+} satisfies Meta<typeof Founder>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    // Default props
-  },
+  args: {},
 };
 
 export const WithCustomClass: Story = {
   args: {
-    className: 'shadow-lg',
+    className: 'pt-24',
   },
 }; 

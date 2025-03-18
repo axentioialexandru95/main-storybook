@@ -2,16 +2,156 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: 'Urbanist', system-ui, sans-serif;
+/* Import Brooklyn font family */
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn Normal 1.ttf') format('truetype'),
+       url('/Font/Brooklyn Normal 1.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn Italic.ttf') format('truetype'),
+       url('/Font/Brooklyn Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn SemiBold.ttf') format('truetype'),
+       url('/Font/Brooklyn SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn SemiBoldItalic.ttf') format('truetype'),
+       url('/Font/Brooklyn SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn Bold 1.ttf') format('truetype'),
+       url('/Font/Brooklyn Bold 1.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn BoldItalic.ttf') format('truetype'),
+       url('/Font/Brooklyn BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn Heavy 1.ttf') format('truetype'),
+       url('/Font/Brooklyn Heavy 1.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brooklyn';
+  src: url('/Font/Brooklyn HeavyItalic.ttf') format('truetype'),
+       url('/Font/Brooklyn HeavyItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Design System */
+
+:root {
+  /* Color System */
+  --color-primary: #2563EB;      /* Primary brand color */
+  --color-primary-light: #3B82F6; /* Blue for hover states */
+  
+  --color-secondary: #E5E7EB;    /* Secondary brand color */
+  
+  --color-text: #1F2937;         /* Dark text for light mode by default */
+  --color-text-muted: #6B7280;   /* Muted text color */
+  
+  --color-background: #FFFCF0;   /* Light cream background by default */
+  --color-surface: #FFFFFF;      /* White surface */
+  --color-surface-hover: #F3F4F6; /* Light hover state */
+  
+  --color-border: #E5E7EB;       /* Light border */
+  
+  /* Glassmorphism */
+  --glass-background: rgba(255, 252, 240, 0.7);  /* Light cream with transparency */
+  --glass-border: rgba(255, 255, 255, 0.2);      /* Subtle border for glass elements */
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);  /* Soft shadow for glass */
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-text: #FFFCF0;         /* Light text for dark mode */
+  --color-text-muted: #9CA3AF;   /* Muted text color for dark mode */
+  
+  --color-background: #0A101F;   /* Dark background */
+  --color-surface: #111827;      /* Slightly lighter dark for cards */
+  --color-surface-hover: #1E293B; /* Hover state for dark mode */
+  
+  --color-border: #1E293B;       /* Border color for dark mode */
+  
+  /* Glassmorphism for dark mode */
+  --glass-background: rgba(17, 24, 39, 0.7);     /* Dark surface with transparency */
+  --glass-border: rgba(30, 41, 59, 0.4);         /* Subtle border for glass elements */
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);  /* Darker shadow for glass */
+}
+
+/* Base Styles */
+body {
+  font-family: 'Brooklyn', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass UI elements */
+.glass {
+  background: var(--glass-background);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  box-shadow: var(--glass-shadow);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2rem;
   }
 }
 
-.dark {
-  background-color: #000;
-  background-image: url('/bg-pattern.png');
-  background-repeat: repeat;
-  background-position: center;
-  background-size: 200px;
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
 }

@@ -9,8 +9,8 @@ export const Page: React.FC = () => {
     <div>
       <Navbar />
       <Hero />
-      <BottomNavigation />
       <Technologies />
+      <BottomNavigation />
     </div>
   );
 };

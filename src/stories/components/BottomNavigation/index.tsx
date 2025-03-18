@@ -2,7 +2,7 @@ import React from 'react';
 
 const BottomNavigation: React.FC = () => {
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 animate-fade-up  max-w-fit">
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 max-w-fit ">
       <nav className="flex items-center justify-between bg-gray-100 rounded-full px-5 py-3">
         <div className="flex items-center gap-8">
           <a href="#how-it-works" className="text-gray-900 text-sm font-medium">

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface TechnologiesProps {
@@ -16,25 +17,17 @@ const Technologies: React.FC<TechnologiesProps> = ({ className }) => {
   ];
 
   return (
-    <div className={`w-full overflow-hidden py-8 ${className}`}>
-      <div className="relative w-full">
-        <div className="animate-infinite-scroll flex items-center space-x-16 whitespace-nowrap">
-          {/* First set of images */}
+    <div className={`w-full py-8 ${className}`}>
+      <div className="flex justify-center">
+        <div className="flex items-center space-x-16">
           {technologies.map((tech, index) => (
-            <img
-              key={`first-${index}`}
+            <Image
+              key={index}
+              width={300}
+              height={300}
               src={tech}
               alt={`Technology ${index + 1}`}
-              className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300 inline-block"
-            />
-          ))}
-          {/* Duplicate set for seamless loop */}
-          {technologies.map((tech, index) => (
-            <img
-              key={`second-${index}`}
-              src={tech}
-              alt={`Technology ${index + 1}`}
-              className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300 inline-block"
+              className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300"
             />
           ))}
         </div>

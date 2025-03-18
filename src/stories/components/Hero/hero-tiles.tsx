@@ -45,7 +45,7 @@ export function HeroTiles() {
       setCurrentHoveredTile(newHoveredTile);
       tilesRef.current.setHoveredTile(newHoveredTile);
     }
-  }, 16); // Approximately 60fps
+  }, 8); // More responsive at 120fps
   
   const handleMouseLeave = () => {
     if (tilesRef.current) {
@@ -53,13 +53,6 @@ export function HeroTiles() {
       setCurrentHoveredTile(null);
     }
   };
-  
-  // Debug logging to verify hover state changes
-  useEffect(() => {
-    if (currentHoveredTile) {
-      console.log(`Hovering tile at row: ${currentHoveredTile.row}, col: ${currentHoveredTile.col}`);
-    }
-  }, [currentHoveredTile]);
   
   return (
     <div 
@@ -70,8 +63,8 @@ export function HeroTiles() {
     >
       <Tiles 
         ref={tilesRef}
-        rows={14} 
-        cols={14}
+        rows={24} 
+        cols={24}
         className="absolute inset-0 w-full h-full"
         tileClassName="border-neutral-800/70 hover:border-primary-500/70 transition-all duration-300 hover:neon-border hover:z-10"
         animated={true}

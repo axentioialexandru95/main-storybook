@@ -1,30 +1,57 @@
 "use client";
 
-import React from 'react';
-import { HeroTiles } from './hero-tiles';
+import React, { useRef } from 'react';
+import { CanvasHeroTiles } from './canvas-hero-tiles';
+import { CanvasTilesRef } from '@/components/ui/canvas-tiles';
 import Navbar from '../Navbar';
+
 const Hero: React.FC = () => {
+  const tilesRef = useRef<CanvasTilesRef>(null);
+  
+  // Handle mouse movements at the Hero level and pass to tiles
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!tilesRef.current) return;
+    
+    // Get position relative to the container
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Pass position to tiles component
+    tilesRef.current.setHoverPosition({ x, y });
+  };
+  
+  const handleMouseLeave = () => {
+    if (tilesRef.current) {
+      tilesRef.current.setHoverPosition(null);
+    }
+  };
+  
   return (
-    <section className="min-h-screen relative overflow-hidden flex items-center bg-black">
-      <div className='absolute top-10 left-0 w-full z-50'>
+    <section 
+      className="relative h-screen overflow-hidden flex items-center justify-center"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className='absolute top-0 left-0 w-full z-50'>
         <Navbar />
       </div>
       {/* Tiles background */}
-      <div className="absolute inset-0 z-0 w-full h-full">
-        <HeroTiles />
+      <div className="absolute inset-0 z-0">
+        <CanvasHeroTiles ref={tilesRef} />
       </div>
       
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 z-[1]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 z-[1]"></div>
       
       {/* Content */}
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
           Your Ideas, Engineered to{' '}
           <span className="bg-primary-500 px-4 py-1 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">Thrive Digitally</span>
         </h1>
 
-        <p className="text-2xl md:text-3xl text-gray-300 mb-8 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+        <p className="text-xl md:text-3xl text-gray-300 mb-8 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
           Build Your MVP with Unmatched Laravel Expertise
         </p>
 

@@ -21,7 +21,7 @@ const Technologies: React.FC<TechnologiesProps> = ({ className }) => {
   ];
 
   return (
-    <div className={`w-full py-8 ${className}`}>
+    <div className={`w-full py-16 ${className}`}>
       <div className="flex justify-center">
         <div 
           ref={scrollContainerRef}

@@ -121,6 +121,8 @@ export const Tiles = forwardRef<TilesRef, TilesProps>(({
               whileHover={{
                 scale: 1.1,
                 zIndex: 30,
+                borderColor: "rgba(25, 25, 254, 0.9)",
+                boxShadow: "0 0 20px rgba(25, 25, 254, 0.7)",
                 transition: { 
                   duration: 0.2
                 }
@@ -131,6 +133,7 @@ export const Tiles = forwardRef<TilesRef, TilesProps>(({
                 isHovered && "border-primary-500"
               )}
               onMouseEnter={() => setHoveredTile({ row: i, col: j })}
+              onMouseLeave={() => setHoveredTile(null)}
             />
           )
         })

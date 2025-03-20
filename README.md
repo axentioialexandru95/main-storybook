@@ -1,40 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PhantomTech Landing Page
 
-## Getting Started
+A modern landing page for PhantomTech built with Next.js and deployed as a static site.
 
-First, run the development server:
+## Development
+
+To run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Building for Production
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+To build the site for production:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This will generate a static export in the `out` directory that can be deployed to any static web hosting service.
 
-## Learn More
+## Deploying the Static Site
 
-To learn more about Next.js, take a look at the following resources:
+The static site is exported to the `out` directory and can be deployed to any web server or static hosting service:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Option 1: Deploy to any standard web server
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Copy all files from the `out` directory to your web server's root directory
+2. No special server configuration is needed since this is a fully static site
 
-## Deploy on Vercel
+### Option 2: Deploy to GitHub Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push the `out` directory to a GitHub repository
+2. Enable GitHub Pages in the repository settings, using the root of the repository as the source
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Option 3: Deploy to Netlify, Vercel, or similar services
+
+1. Connect your repository to the hosting service
+2. Set the build command to `npm run build`
+3. Set the publish directory to `out`
+
+## Features
+
+- Responsive design for all device sizes
+- Interactive animations with Framer Motion
+- Mobile-friendly with optimized navigation
+- Fast loading static assets
+
+## Technologies Used
+
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+- TypeScript

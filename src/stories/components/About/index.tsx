@@ -167,7 +167,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative py-20 overflow-hidden bg-black"
+      className="relative py-10 sm:py-12 md:py-16 lg:py-20 overflow-hidden bg-black"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -190,23 +190,26 @@ const About: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-black/95 z-[1]"></div>
 
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6 sm:mb-8 md:mb-10">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              About <span className="text-primary-500">PhantomTech</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3">
+              About{' '}
+              <span className="inline-block bg-primary-500 px-2 py-0.5 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
+                PhantomTech
+              </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto">
               Software that moves at your speed
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 mb-6 sm:mb-8 md:mb-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -214,16 +217,19 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              Technology that <span className="text-primary-500">adapts to you</span>
+            <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4 md:mb-6">
+              Technology that{' '}
+              <span className="inline-block bg-primary-500 px-2 py-0.5 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
+                adapts to you
+              </span>
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 text-sm sm:text-base mb-3 sm:mb-4 md:mb-5">
               We believe that great technology should work for you, not against you. At PhantomTech,
               we build
               <span className="text-white font-semibold"> smart, scalable, and intuitive</span>{' '}
               solutions that adapt to your workflow.
             </p>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm sm:text-base">
               No unnecessary complexity, no bloated features—just technology that
               <span className="text-white font-semibold">
                 {' '}
@@ -238,15 +244,18 @@ const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 shadow-lg"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-white mb-4">Who We Work With</h3>
-            <ul className="space-y-4">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-3 sm:mb-4">
+              Who We Work With
+            </h3>
+            <ul className="space-y-2 sm:space-y-3 md:space-y-4">
               <li className="flex items-start">
-                <div className="text-primary-500 mr-4 mt-1">
+                <div className="text-primary-500 mr-2 sm:mr-3 md:mr-4 mt-1 flex-shrink-0">
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-4 sm:h-4 md:w-5 md:h-5"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -260,16 +269,17 @@ const About: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-400">
+                <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                   <span className="text-white font-medium">SMEs & solopreneurs</span> looking for
                   better ways to manage their business
                 </p>
               </li>
               <li className="flex items-start">
-                <div className="text-primary-500 mr-4 mt-1">
+                <div className="text-primary-500 mr-2 sm:mr-3 md:mr-4 mt-1 flex-shrink-0">
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-4 sm:h-4 md:w-5 md:h-5"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -283,16 +293,17 @@ const About: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-400">
+                <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                   <span className="text-white font-medium">E-commerce founders</span> who need
                   customized solutions beyond template platforms
                 </p>
               </li>
               <li className="flex items-start">
-                <div className="text-primary-500 mr-4 mt-1">
+                <div className="text-primary-500 mr-2 sm:mr-3 md:mr-4 mt-1 flex-shrink-0">
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-4 sm:h-4 md:w-5 md:h-5"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -306,16 +317,17 @@ const About: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-400">
+                <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                   <span className="text-white font-medium">Freelancers & agencies</span> tired of
                   tool overload and juggling multiple platforms
                 </p>
               </li>
               <li className="flex items-start">
-                <div className="text-primary-500 mr-4 mt-1">
+                <div className="text-primary-500 mr-2 sm:mr-3 md:mr-4 mt-1 flex-shrink-0">
                   <svg
-                    width="20"
-                    height="20"
+                    width="16"
+                    height="16"
+                    className="sm:w-4 sm:h-4 md:w-5 md:h-5"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +341,7 @@ const About: React.FC = () => {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-400">
+                <p className="text-gray-400 text-xs sm:text-sm md:text-base">
                   <span className="text-white font-medium">Logistics & small manufacturing</span>{' '}
                   businesses that want efficient systems without enterprise complexity
                 </p>
@@ -340,7 +352,7 @@ const About: React.FC = () => {
 
         {/* Core Values */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mt-6 sm:mt-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -348,7 +360,7 @@ const About: React.FC = () => {
         >
           <motion.div
             variants={itemVariants}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 h-full flex flex-col"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 h-full flex flex-col"
             whileHover={{
               y: -5,
               boxShadow: '0 10px 25px -5px rgba(25, 25, 254, 0.2)',
@@ -356,11 +368,15 @@ const About: React.FC = () => {
             }}
             transition={{ duration: 0.2 }}
           >
-            <div className="text-primary-500 mb-6">
+            <div className="text-primary-500 mb-3 sm:mb-4 md:mb-5">
               <SpeedIcon />
             </div>
-            <h3 className="font-bold text-white mb-3 text-xl">Simple, Streamlined Workflows</h3>
-            <p className="text-gray-400 flex-grow text-sm">
+            <h3 className="font-bold text-white mb-2 sm:mb-3 text-base sm:text-lg md:text-xl">
+              <span className="border-b-2 border-primary-500 pb-1">
+                Simple, Streamlined Workflows
+              </span>
+            </h3>
+            <p className="text-gray-400 flex-grow text-xs sm:text-sm">
               Because software should make work easier, not harder. We deliver intuitive tools
               designed to help you get things done.
             </p>
@@ -368,7 +384,7 @@ const About: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 h-full flex flex-col"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 h-full flex flex-col"
             whileHover={{
               y: -5,
               boxShadow: '0 10px 25px -5px rgba(25, 25, 254, 0.2)',
@@ -376,11 +392,13 @@ const About: React.FC = () => {
             }}
             transition={{ duration: 0.2 }}
           >
-            <div className="text-primary-500 mb-6">
+            <div className="text-primary-500 mb-3 sm:mb-4 md:mb-5">
               <AdaptIcon />
             </div>
-            <h3 className="font-bold text-white mb-3 text-xl">Fast Delivery</h3>
-            <p className="text-gray-400 flex-grow text-sm">
+            <h3 className="font-bold text-white mb-2 sm:mb-3 text-base sm:text-lg md:text-xl">
+              <span className="border-b-2 border-primary-500 pb-1">Fast Delivery</span>
+            </h3>
+            <p className="text-gray-400 flex-grow text-xs sm:text-sm">
               Time is money. We focus on affordable, custom solutions tailored to businesses that
               move fast and need technology that keeps up.
             </p>
@@ -388,7 +406,7 @@ const About: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 h-full flex flex-col"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 h-full flex flex-col"
             whileHover={{
               y: -5,
               boxShadow: '0 10px 25px -5px rgba(25, 25, 254, 0.2)',
@@ -396,18 +414,20 @@ const About: React.FC = () => {
             }}
             transition={{ duration: 0.2 }}
           >
-            <div className="text-primary-500 mb-6">
+            <div className="text-primary-500 mb-3 sm:mb-4 md:mb-5">
               <ClientIcon />
             </div>
-            <h3 className="font-bold text-white mb-3 text-xl">Solutions Built for Growth</h3>
-            <p className="text-gray-400 flex-grow text-sm">
+            <h3 className="font-bold text-white mb-2 sm:mb-3 text-base sm:text-lg md:text-xl">
+              <span className="border-b-2 border-primary-500 pb-1">Solutions Built for Growth</span>
+            </h3>
+            <p className="text-gray-400 flex-grow text-xs sm:text-sm">
               We build exactly what you need without the fluff, ensuring you&apos;re always one step
               ahead with intelligent, efficient, and accessible software.
             </p>
           </motion.div>
         </motion.div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-6 sm:mt-8 md:mt-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -416,7 +436,7 @@ const About: React.FC = () => {
           >
             <a
               href="#contact"
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg text-lg shadow-[0_0_15px_rgba(25,25,254,0.5)] hover:shadow-[0_0_20px_rgba(25,25,254,0.7)] transition-all duration-300"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg text-sm sm:text-base md:text-lg shadow-[0_0_15px_rgba(25,25,254,0.5)] hover:shadow-[0_0_20px_rgba(25,25,254,0.7)] transition-all duration-300"
             >
               Let&apos;s Build Something Extraordinary →
             </a>

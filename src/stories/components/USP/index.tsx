@@ -147,32 +147,39 @@ const USP: React.FC<USPProps> = ({ className }) => {
   );
 
   return (
-    <section className={`bg-black relative py-24 ${className}`}>
+    <section className={`bg-black relative py-12 sm:py-16 md:py-24 ${className}`}>
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0c0c20]/20 to-black/0 pointer-events-none"></div>
 
-      <div className="max-w-screen-xl mx-auto px-6">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
         {/* Intro text */}
         <motion.div
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-4xl mx-auto text-center mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Custom Solutions for <span className="text-primary-500">Unique Challenges</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
+            Custom Solutions for{' '}
+            <span className="bg-primary-500 px-2 py-0.5 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
+              Unique Challenges
+            </span>
           </h2>
-          <p className="text-gray-400 text-lg">
-            At PhantomTech, we create custom tech solutions designed just for you. With over 9 years
-            of hands-on experience, we work closely with you to build systems that are flexible,
-            scalable, and truly supportive of your growth.
+          <p className="text-gray-400 text-base sm:text-lg">
+            At PhantomTech, we create custom tech solutions designed just for you. With over{' '}
+            <span className="text-white">9 years of hands-on experience</span>, we work closely with
+            you to build systems that are{' '}
+            <span className="bg-primary-500 px-2 py-0.5 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
+              flexible, scalable
+            </span>
+            , and truly supportive of your growth.
           </p>
         </motion.div>
 
         {/* USP Cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -181,39 +188,44 @@ const USP: React.FC<USPProps> = ({ className }) => {
           {/* Card 1 - Practical Partnership */}
           <motion.div
             variants={itemVariants}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 hover:border-primary-500/30 transition-all duration-300"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-6 md:p-8 hover:border-primary-500/30 transition-all duration-300"
             whileHover={{
               y: -5,
               boxShadow: '0 10px 30px -15px rgba(70, 70, 255, 0.3)',
               transition: { duration: 0.2 },
             }}
           >
-            <div className="text-primary-500 mb-6">
+            <div className="text-primary-500 mb-4 sm:mb-6">
               <PartnershipIcon />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Practical Partnership</h3>
-            <p className="text-gray-400">
-              We work side-by-side with you, ensuring our solutions are tailor-made for your
-              specific challenges. Unlike competitors who offer cookie-cutter products, we build
-              systems that genuinely adapt and scale with your business.
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
+              <span className="border-b-2 border-primary-500 pb-1">Practical Partnership</span>
+            </h3>
+            <p className="text-gray-400 text-sm sm:text-base">
+              We work side-by-side with you, ensuring our solutions are{' '}
+              <span className="text-white">tailor-made</span> for your specific challenges. Unlike
+              competitors who offer cookie-cutter products, we build systems that genuinely adapt
+              and scale with your business.
             </p>
           </motion.div>
 
           {/* Card 2 - Transparency Over Hype */}
           <motion.div
             variants={itemVariants}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 hover:border-primary-500/30 transition-all duration-300"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-6 md:p-8 hover:border-primary-500/30 transition-all duration-300"
             whileHover={{
               y: -5,
               boxShadow: '0 10px 30px -15px rgba(70, 70, 255, 0.3)',
               transition: { duration: 0.2 },
             }}
           >
-            <div className="text-primary-500 mb-6">
+            <div className="text-primary-500 mb-4 sm:mb-6">
               <TransparencyIcon />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Transparency Over Hype</h3>
-            <p className="text-gray-400">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
+              <span className="border-b-2 border-primary-500 pb-1">Transparency Over Hype</span>
+            </h3>
+            <p className="text-gray-400 text-sm sm:text-base">
               With us, there are no empty promises. We focus on honest, clear communication, so you
               always know what to expect—delivering real, practical value without overhyping the
               outcome.
@@ -223,18 +235,20 @@ const USP: React.FC<USPProps> = ({ className }) => {
           {/* Card 3 - Proven Experience */}
           <motion.div
             variants={itemVariants}
-            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 hover:border-primary-500/30 transition-all duration-300"
+            className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-6 md:p-8 hover:border-primary-500/30 transition-all duration-300"
             whileHover={{
               y: -5,
               boxShadow: '0 10px 30px -15px rgba(70, 70, 255, 0.3)',
               transition: { duration: 0.2 },
             }}
           >
-            <div className="text-primary-500 mb-6">
+            <div className="text-primary-500 mb-4 sm:mb-6">
               <ExperienceIcon />
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">Proven Experience</h3>
-            <p className="text-gray-400">
+            <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">
+              <span className="border-b-2 border-primary-500 pb-1">Proven Experience</span>
+            </h3>
+            <p className="text-gray-400 text-sm sm:text-base">
               With over 9 years of hands-on experience, we&apos;ve honed a pragmatic approach
               that&apos;s built on understanding the real-world needs of businesses like yours. Our
               expertise means we can deliver flexible, scalable systems that support your growth.

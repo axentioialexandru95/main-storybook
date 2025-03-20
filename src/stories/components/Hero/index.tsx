@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
 
   return (
     <section
-      className="relative h-screen overflow-hidden flex items-center justify-center"
+      className="relative min-h-[600px] sm:min-h-[650px] md:min-h-[700px] lg:h-screen overflow-hidden flex items-center justify-center py-16 sm:py-20 md:py-24"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -79,25 +79,36 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 z-[1]"></div>
 
       {/* Content */}
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mt-16 sm:mt-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4">
           Your Ideas, Engineered to{' '}
-          <span className="bg-primary-500 px-4 py-1 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
+          <span className="inline-block bg-primary-500 px-2 sm:px-4 py-1 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
             Thrive Digitally
           </span>
         </h1>
 
-        <p className="text-xl md:text-3xl text-gray-300 mb-8 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6 sm:mb-8 drop-shadow-[0_0_10px_rgba(0,0,0,0.8)]">
           Build Your MVP with Unmatched Laravel Expertise
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <button className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg text-lg shadow-[0_0_15px_rgba(25,25,254,0.5)] hover:shadow-[0_0_20px_rgba(25,25,254,0.7)] transition-all duration-300">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+          <a
+            href="#contact"
+            className="bg-primary-500 hover:bg-primary-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg shadow-[0_0_15px_rgba(25,25,254,0.5)] hover:shadow-[0_0_20px_rgba(25,25,254,0.7)] transition-all duration-300"
+          >
             Book a Call →
-          </button>
-          <button className="border border-gray-600 hover:border-primary-400 text-white px-8 py-3 rounded-lg text-lg hover:shadow-[0_0_15px_rgba(25,25,254,0.5)] transition-all duration-300">
+          </a>
+          <a
+            href="#"
+            className="border border-gray-600 hover:border-primary-400 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-base sm:text-lg hover:shadow-[0_0_15px_rgba(25,25,254,0.5)] transition-all duration-300"
+          >
             <span className="flex items-center gap-2">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -113,10 +124,12 @@ const Hero: React.FC = () => {
               </svg>
               Watch video
             </span>
-          </button>
+          </a>
         </div>
 
-        <p className="text-gray-400 mt-4">We&apos;re on it—expect a quick response!</p>
+        <p className="text-gray-400 mt-4 text-sm sm:text-base">
+          We&apos;re on it—expect a quick response!
+        </p>
       </div>
     </section>
   );

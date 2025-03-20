@@ -17,7 +17,7 @@ interface Service {
 const ServiceCard: React.FC<Service> = ({ title, description, icon }) => {
   return (
     <motion.div
-      className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-8 h-full flex flex-col"
+      className="bg-[#0E0D29] border border-[#201F45] rounded-xl p-4 sm:p-6 md:p-8 h-full flex flex-col"
       whileHover={{
         y: -5,
         boxShadow: '0 10px 25px -5px rgba(25, 25, 254, 0.2)',
@@ -25,9 +25,9 @@ const ServiceCard: React.FC<Service> = ({ title, description, icon }) => {
       }}
       transition={{ duration: 0.2 }}
     >
-      <div className="text-primary-500 mb-6">{icon}</div>
-      <h3 className="font-bold text-white mb-3 text-xl">{title}</h3>
-      <p className="text-gray-400 flex-grow text-sm">{description}</p>
+      <div className="text-primary-500 mb-4 sm:mb-6">{icon}</div>
+      <h3 className="font-bold text-white mb-2 sm:mb-3 text-lg sm:text-xl">{title}</h3>
+      <p className="text-gray-400 flex-grow text-xs sm:text-sm">{description}</p>
     </motion.div>
   );
 };
@@ -487,7 +487,7 @@ const Services: React.FC = () => {
 
   return (
     <section
-      className="relative py-20 overflow-hidden bg-black"
+      className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-black"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -510,32 +510,35 @@ const Services: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-black/95 z-[1]"></div>
 
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Web & App <span className="text-primary-500">Development</span>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-2 sm:mb-4">
+              Web & App{' '}
+              <span className="bg-primary-500 px-2 py-0.5 drop-shadow-[0_0_15px_rgba(25,25,254,0.5)]">
+                Development
+              </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
               Transforming your ideas into powerful digital solutions
             </p>
           </motion.div>
         </div>
 
-        {/* Bento Grid Layout - Exactly matching the reference image */}
+        {/* Bento Grid Layout - Responsive for all screen sizes */}
         <motion.div
-          className="grid grid-cols-12 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
           {/* First Row */}
-          <motion.div className="col-span-12 md:col-span-5" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-12 md:col-span-5" variants={itemVariants}>
             <ServiceCard
               title={services[0].title}
               description={services[0].description}
@@ -543,7 +546,7 @@ const Services: React.FC = () => {
             />
           </motion.div>
 
-          <motion.div className="col-span-6 md:col-span-3" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-6 md:col-span-3" variants={itemVariants}>
             <ServiceCard
               title={services[1].title}
               description={services[1].description}
@@ -551,7 +554,7 @@ const Services: React.FC = () => {
             />
           </motion.div>
 
-          <motion.div className="col-span-6 md:col-span-4" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-6 md:col-span-4" variants={itemVariants}>
             <ServiceCard
               title={services[2].title}
               description={services[2].description}
@@ -560,7 +563,7 @@ const Services: React.FC = () => {
           </motion.div>
 
           {/* Second Row */}
-          <motion.div className="col-span-12 md:col-span-8" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-12 md:col-span-8" variants={itemVariants}>
             <ServiceCard
               title={services[3].title}
               description={services[3].description}
@@ -568,7 +571,7 @@ const Services: React.FC = () => {
             />
           </motion.div>
 
-          <motion.div className="col-span-12 md:col-span-4" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-12 md:col-span-4" variants={itemVariants}>
             <ServiceCard
               title={services[4].title}
               description={services[4].description}
@@ -577,7 +580,7 @@ const Services: React.FC = () => {
           </motion.div>
 
           {/* Third Row */}
-          <motion.div className="col-span-12 md:col-span-4" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-12 md:col-span-4" variants={itemVariants}>
             <ServiceCard
               title={services[5].title}
               description={services[5].description}
@@ -585,7 +588,7 @@ const Services: React.FC = () => {
             />
           </motion.div>
 
-          <motion.div className="col-span-12 md:col-span-8" variants={itemVariants}>
+          <motion.div className="col-span-1 sm:col-span-12 md:col-span-8" variants={itemVariants}>
             <ServiceCard
               title={services[6].title}
               description={services[6].description}
@@ -594,7 +597,7 @@ const Services: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-8 sm:mt-12 md:mt-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -603,7 +606,7 @@ const Services: React.FC = () => {
           >
             <a
               href="#contact"
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg text-lg shadow-[0_0_15px_rgba(25,25,254,0.5)] hover:shadow-[0_0_20px_rgba(25,25,254,0.7)] transition-all duration-300"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg text-base sm:text-lg shadow-[0_0_15px_rgba(25,25,254,0.5)] hover:shadow-[0_0_20px_rgba(25,25,254,0.7)] transition-all duration-300"
             >
               Start Your Project →
             </a>

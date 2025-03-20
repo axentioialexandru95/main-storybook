@@ -11,31 +11,15 @@ import USP from '@/stories/components/USP';
 export default function Home() {
   return (
     <main className="relative w-full">
-      <section id="home">
-        <Hero />
-      </section>
-      <section id="technologies">
-        <Technologies />
-      </section>
-      <section id="features">
-        <Features />
-      </section>
+      <Hero />
+      <Technologies />
+      <Features />
       <BottomNavigation />
-      <section id="work">
-        <TimelineDemo />
-      </section>
-      <section id="services">
-        <Services />
-      </section>
-      <section id="about">
-        <About />
-      </section>
-      <section id="usp">
-        <USP />
-      </section>
-      <section id="contact">
-        <Footer />
-      </section>
+      <TimelineDemo />
+      <Services />
+      <About />
+      <USP />
+      <Footer />
     </main>
   );
 }

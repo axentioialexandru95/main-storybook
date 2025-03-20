@@ -7,7 +7,6 @@ const Navbar: React.FC = () => {
   return (
     <nav className="py-4 px-4 sm:px-6 md:py-6 md:px-10">
       <div className="max-w-screen-2xl mx-auto">
-        {/* Logo and social media icons */}
         <div className="flex flex-col md:flex-row md:justify-between items-center">
           <div className="flex-shrink-0 mb-4 md:mb-0">
             <Link href="/" className="flex items-center justify-center">
